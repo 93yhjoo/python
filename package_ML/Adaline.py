@@ -6,6 +6,7 @@ class AdalineGD(object):
         self.n_iter = n_iter
 
     def fit(self, X, y):
+        #1+X.shape[1]사이즈 만큼 0을 가진 행렬 생성
         self.w_ = np.zeros(1 + X.shape[1])
         self.cost_ = []
 
@@ -14,6 +15,8 @@ class AdalineGD(object):
             errors = (y - output)
             # 퍼셉트론과 달리, 모든 입력데이터의 결과값을 1 iter에 한번에 구한 뒤,
             # 입력 레이블과의 오차도 모두 구함.
+            #dot은 행렬의 곱 연산
+
             self.w_[1:] += self.eta * X.T.dot(errors)
             self.w_[0] += self.eta * errors.sum()
             # 퍼셉트론과의 차이는 데이터가 한번에 들어간다는 점.
