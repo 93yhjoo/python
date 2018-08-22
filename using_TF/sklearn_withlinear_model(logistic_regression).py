@@ -8,6 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
 from package_ML.ListedColormap_Iris import plot_decision_region_classification
 import matplotlib.pyplot as plt
+
 iris = datasets.load_iris()
 X=iris.data[:,[2,3]]
 y=iris.target
@@ -21,7 +22,7 @@ y_combined=np.hstack((y_train,y_test))
 #LogisticPregression
 lr=LogisticRegression(C=100.0,random_state=0)
 lr.fit(X_train_std,y_train)
-#
+#show matpltlib.pyplot graph
 plot_decision_region_classification(X_combined_std,y_combined,classifier=lr,test_idx=range(105,150))
 plt.xlabel('petal length[standardized]')
 plt.ylabel('petal width[stadnardized]')
