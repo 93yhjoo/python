@@ -25,6 +25,7 @@ X=df[['color','size','price','classlabel']].values
 color_le=preprocessing.LabelEncoder()
 X[:,0]=color_le.fit_transform(X[:,0])
 print(X)
+#oneHotEncoder
 ohe=OneHotEncoder(categorical_features=[0])
 print(ohe.fit_transform(X).toarray())
 print(pd.get_dummies(df[['price','color','size']]))
