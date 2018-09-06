@@ -27,10 +27,11 @@ X_train_std=stdsc.fit_transform(X_train)
 X_test_std=stdsc.transform(X_test)
 
 #regularation
-lr=LogisticRegression(penalty='l1',C=0.1)
-lr.fit(X_train_std,y_train)
-print('Training accuracy(std):',lr.score(X_train_norm,y_train))
-print('Text accuracy(std):',lr.score(X_test_norm,y_test))
+#lr=LogisticRegression(penalty='l1',C=0.1)
+#lr.fit(X_train_std,y_train)
+
+#print('Training accuracy(std):',lr.score(X_train_std,y_train))
+#print('Text accuracy(std):',lr.score(X_test_std,y_test))
 
 #tracking_regularation(다양한 피쳐들의 가중계수인 정규화의 경로 파악)
 fig=plt.figure()
