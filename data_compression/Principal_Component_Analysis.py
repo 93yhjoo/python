@@ -21,3 +21,19 @@ plt.ylabel('Explained variance ratio(분산비율)')
 plt.xlabel('Principal components(주성분)')
 plt.legend(loc='best')
 plt.show()
+
+
+eigen_pairs=[(np.abs(eigen_vals[i]),eigen_vecs[:,i]) for i in range(len(eigen_vals))]
+eigen_pairs.sort(reverse=True)
+w=np.hstack((eigen_pairs[0][1][:,np.newaxis],eigen_pairs[1][1][:,np.newaxis]))
+X_train_pca=X_train_std.dot(w)
+
+
+color=['r','g','b']
+markers=['s','x','o']
+for l,c,m in zip(np.unique(y_train),color,markers):
+    plt.scatter(X_train_pca[y_train==l,0],X_train_pca[y_train==l,1],c=c,label=l,marker=m)
+plt.xlabel('PC1')
+plt.ylabel('PC2')
+plt.legend(loc='lower left')
+plt.show()
