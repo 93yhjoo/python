@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import animation
 
+
+#분할 정복 7.4~7.5 울타리 잘라내기
 def init_bar(fence):
     x = []
     y = []
